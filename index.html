@@ -1,0 +1,69 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Supreb Chat AI</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="header-left">
+        <h1 class="title">Supreb Chat AI</h1>
+        <div class="tagline-wrap" aria-hidden="true">
+          <span id="typed-tagline" class="tagline"></span>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme" title="Toggle theme">🖥️</button>
+
+        <div class="apikey-wrap">
+          <button id="apikey-toggle" class="btn" aria-controls="apikey-form" aria-expanded="false" aria-label="Set API Key">
+            Set API Key
+          </button>
+          <form id="apikey-form" class="apikey-form" aria-label="API key form" hidden>
+            <label class="sr-only" for="apikey-input">OpenAI API Key</label>
+            <input id="apikey-input" type="password" placeholder="sk-..." autocomplete="off" />
+            <div class="apikey-actions">
+              <button type="submit" class="btn">Save</button>
+              <button type="button" id="apikey-cancel" class="btn btn-ghost">Cancel</button>
+            </div>
+            <p class="hint">Stored locally as <code>openai_api_key</code>.</p>
+          </form>
+        </div>
+
+        <button id="new-chat" class="btn btn-danger" aria-label="New chat">New Chat</button>
+      </div>
+    </header>
+
+    <div id="key-warning" class="notice" role="status" hidden>
+      <strong>API key missing.</strong> Click “Set API Key” to add one. Sending is disabled.
+    </div>
+
+    <main class="chat-main">
+      <div id="chat" class="chat-list" aria-live="polite" aria-label="Chat messages"></div>
+    </main>
+
+    <footer class="composer">
+      <form id="composer-form" class="composer-form" autocomplete="off">
+        <label class="sr-only" for="composer-input">Message</label>
+        <textarea
+          id="composer-input"
+          placeholder="Type your message…"
+          rows="1"
+          maxlength="8000"
+          aria-label="Message input (Shift+Enter for new line)"
+        ></textarea>
+        <button id="send-btn" class="btn btn-primary" type="submit" aria-label="Send message">Send</button>
+      </form>
+    </footer>
+  </div>
+
+  <!-- Only external dependency allowed -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
