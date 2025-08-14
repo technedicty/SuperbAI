@@ -292,7 +292,7 @@ async function onSubmit(e) {
 async function streamFromOpenAI(apiKey, userText, onDelta) {
   const url = 'https://api.openai.com/v1/chat/completions';
   const body = {
-    model: 'gpt-4o',
+    model: 'gpt-4.1',
     temperature: 0.7,
     stream: true,
     messages: [
@@ -370,3 +370,4 @@ function onNewChat() {
 
 // ---------- Utilities ----------
 /* (none additional) */
+
